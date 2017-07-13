@@ -206,7 +206,7 @@ static void RuleUpdateThread(void)
         if (remote_socket < 0)  
         {  
             LogMessage("Server Accept Failed!\n");  
-            break;  
+            continue;  
         }  
 
         LogMessage("Recieving Rules Update Notification!\n");  
@@ -217,13 +217,13 @@ static void RuleUpdateThread(void)
         if (length < 0)  
         {  
             LogMessage("Recieve Data Failed!\n");  
-            break;  
+            continue;  
         }  
 
         if (strcmp(buffer, "Rulesupdate") != 0)
         {
             LogMessage("Unknown message\n");
-            break;
+            continue;
         }
         
         LogMessage("Updating Rules\n");
