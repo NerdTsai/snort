@@ -568,13 +568,13 @@ static int log_pcap_file(Packet* p, char* file_name)
     pcap_dumper_t* pcap_dump_handle;
     FILE* fp;
     //char* file_path;
-
+/*
     if ((p == NULL) || (p->eh == NULL) || (p->iph == NULL))
     {
         LOG_ERR_PRINT("This is not a Eth/IPV4 frame\n");
         return -1;
     }
-
+*/
     if ((pcap_handle = pcap_open_dead(DLT_EN10MB, 65535)) == NULL)
     {
         LOG_ERR_PRINT("Failed to create pcap handler\n");
