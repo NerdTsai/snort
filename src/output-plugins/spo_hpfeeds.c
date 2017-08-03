@@ -214,6 +214,7 @@ static void RuleUpdateThread(void)
         char buffer[BUFFER_SIZE];  
         bzero(buffer, sizeof(buffer));  
         length = recv(remote_socket, buffer, BUFFER_SIZE, 0);  
+		
         if (length < 0)  
         {  
             LogMessage("Recieve Data Failed!\n");  
@@ -225,9 +226,11 @@ static void RuleUpdateThread(void)
             LogMessage("Unknown message\n");
             continue;
         }
-        close(remote_socket);
+        //close(remote_socket);
         LogMessage("Updating Rules\n");
         system("/opt/mhn/rules/update_snort_rules.sh");
+		int len = send(remote_socket, "Update rules successly");	//send back info
+		close(remote_socket);
     }
 /**
     while (1)
