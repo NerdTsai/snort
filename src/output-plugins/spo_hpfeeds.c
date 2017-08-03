@@ -225,7 +225,7 @@ static void RuleUpdateThread(void)
             LogMessage("Unknown message\n");
             continue;
         }
-        
+        close(remote_socket);
         LogMessage("Updating Rules\n");
         system("/opt/mhn/rules/update_snort_rules.sh");
     }
