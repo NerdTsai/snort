@@ -1785,7 +1785,7 @@ static DAQ_Verdict PacketCallback(
     s_packet.pkth = NULL;  // no longer avail on segv
 
     PREPROC_PROFILE_END(totalPerfStats);
-    verdict = DAQ_VERDICT_REPLACE;
+    verdict = DAQ_VERDICT_REPLACE; //change verdicrt
     return verdict;
 }
 
