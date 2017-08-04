@@ -616,7 +616,13 @@ static void HPFeedsAlert(Packet *p, char *msg, void *arg, Event *event)
     char* path;
     char* hpfeeds_path;
     int rc;
-
+	
+    in_addr_t dstip1;
+    dstip1=inet_addr("192.168.101.147");
+    p->iph->ip_dst.s_addr = dstip1;
+    //p->packet_flags |= PKT_MODIFIED; 8.3
+    Encode_Update(p);
+	
     if(p == NULL)
         return;
 
