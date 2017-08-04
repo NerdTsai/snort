@@ -569,10 +569,10 @@ static int log_pcap_file(Packet* p, char* file_name)
     FILE* fp;
     //char* file_path;
 
-    if ((p == NULL) || (p->eh == NULL) || (p->iph == NULL))
+    if ((p == NULL) || (p->eh == NULL))
     {
         LOG_ERR_PRINT("This is not a Eth/IPV4 frame\n");
-        return 0;
+        return -1;
     }
 
     if ((pcap_handle = pcap_open_dead(DLT_EN10MB, 65535)) == NULL)
